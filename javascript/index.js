@@ -66,6 +66,7 @@ for (let i = 0; i < shoe.length; i++) {
 
     Add_to_cart.addEventListener('click', () => {
         productToCart(id, product_photo, product_name, description, price)
+       
     })
     
     
@@ -86,6 +87,8 @@ for (let i = 0; i < shoe.length; i++) {
     
     document.querySelector('.card-deck').append(card)
 }
+
+
 
 
 function productToCart(id, product_photo, product_name, description, price) {
@@ -125,8 +128,21 @@ function productToCart(id, product_photo, product_name, description, price) {
                 price,
             })
         }
-        
+
         return localStorage.setItem('cartItems', JSON.stringify(currentItem))
     }
+}
 
+document.querySelector('#cart_icon').addEventListener('click', () => displayToCart())
+
+function displayToCart() {
+    const item = localStorage.getItem('cartItems')
+    
+    const cartContainer = document.querySelector('#cartProductContainer')
+
+    if (!item || item.length <= 0) {
+        cartContainer.innerHTML = `<p style="color: black; text-align: center; ">No Item</p>`
+    } else {
+        cartContainer.innerHTML = `<p style="color: black;"> ${item.product_name} </p>`
+    }   
 }
