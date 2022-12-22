@@ -66,7 +66,6 @@ for (let i = 0; i < shoe.length; i++) {
 
     Add_to_cart.addEventListener('click', () => {
         productToCart(id, product_photo, product_name, description, price)
-       
     })
     
     
@@ -120,29 +119,58 @@ function productToCart(id, product_photo, product_name, description, price) {
             const index = currentItem.findIndex(item => item.id == id);
             currentItem[index].quantity += 1;
         } else {
+            const quantity = 1
             currentItem.push({
                 id,
                 product_photo,
                 product_name,
                 description,
+                quantity,
                 price,
             })
         }
 
         return localStorage.setItem('cartItems', JSON.stringify(currentItem))
     }
+
 }
 
-document.querySelector('#cart_icon').addEventListener('click', () => displayToCart())
-
 function displayToCart() {
-    const item = localStorage.getItem('cartItems')
+    const item = JSON.parse(localStorage.getItem('cartItems'))
     
     const cartContainer = document.querySelector('#cartProductContainer')
-
     if (!item || item.length <= 0) {
         cartContainer.innerHTML = `<p style="color: black; text-align: center; ">No Item</p>`
     } else {
-        cartContainer.innerHTML = `<p style="color: black;"> ${item.product_name} </p>`
+        cartContainer.innerHTML = ''
+        item.map(val => {
+            cartContainer.innerHTML += `
+            <div class="productItems">
+                <div class="cont1">
+                    <span><img src="../Assets/Icons/wishlist logo.svg" alt="" class="nav_icons"></span>
+                    <img src="${val.product_photo}" alt="" class="productImg">
+                </div>
+                <div class="cont2">
+                    <h6 class="productName">${val.product_name}</h6>
+                    <p class="productDescription">${val.description}</p>
+                </div>
+                <div class="quantity_nav">
+                    <input class="quantityBtn dicrement" type="button" value="-"></input>
+                    <p class="productQuantity">${val.quantity}</p>
+                    <input class="quantityBtn increment" type="button" value="+"></input>
+                </div>
+                <div class="priceCont">
+                    <p>${val.price}</p>
+                </div>
+            </div>`
+        })
     }   
 }
+
+document.querySelector('#cart_icon').addEventListener('click', () => {
+    displayToCart()
+})
+
+document.querySelector('.removeBtn').addEventListener('click', () => {
+    localStorage.removeItem('cartItems')
+})
