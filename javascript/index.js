@@ -90,8 +90,117 @@ for (let i = 0; i < shoe.length; i++) {
 
 
 
-function productToCart(id, product_photo, product_name, description, price) {
+function displayToCart() {
+    const item = JSON.parse(localStorage.getItem('cartItems'))
+    
+    const cartContainer = document.querySelector('#cartProductContainer')
+    if (!item || item.length <= 0) {
+        cartContainer.innerHTML = `<p style="color: black; text-align: center; ">No Item</p>`
+    } else {
+        cartContainer.innerHTML = ''
 
+        for (let i = 0; i < item.length; i++){
+
+            let id = item[i].id
+            let product_photo = item[i].product_photo
+            let product_name = item[i].product_name
+            let description = item[i].description
+            let price = item[i].price
+            let quantity = item[i].quantity
+
+            const productItems = document.createElement('div')
+            productItems.setAttribute(Attributes.class, 'productItems')
+
+            const cont1 = document.createElement('div')
+            cont1.setAttribute(Attributes.class, 'cont1')
+
+            const span = document.createElement('span')
+
+            const nav_icons = document.createElement('img')
+            Object.assign(nav_icons, {
+                src: '../Assets/Icons/wishlist logo.svg',
+                className: 'nav_icons'
+            })
+            span.append(nav_icons)
+           
+            const productImg = document.createElement('img')
+            Object.assign(productImg, {
+                src: `${product_photo}`,
+                className: 'productImg'
+            })
+            cont1.append(span, productImg)
+
+
+            const cont2 = document.createElement('div')
+            cont2.setAttribute(Attributes.class, 'cont2')
+
+            const productName = document.createElement('h6')
+            productName.setAttribute(Attributes.class, 'productName')
+            productName.append(`${product_name}`)
+
+            const productDescription = document.createElement('p')
+            productDescription.setAttribute(Attributes.class, 'productDescription')
+            productDescription.append(item[i].description)
+            cont2.append(productName, `${description}`)
+
+            const quantity_nav = document.createElement('div')
+            quantity_nav.setAttribute(Attributes.class, 'quantity_nav')
+
+            const dicrementBtn = document.createElement('input')
+            Object.assign(dicrementBtn, {
+                className: 'quantityBtn dicrement',
+                type: 'button',
+                value: '-',
+                onclick: () => {
+                    console.log('decrement')
+                    dicrementQuantity(id)
+                }
+            })
+
+            let productQuantity = document.createElement('p')
+            productQuantity.setAttribute(Attributes.class, 'productQuantity')
+            productQuantity.append(`${quantity}`)
+
+            const incrementBtn = document.createElement('input')
+            Object.assign(incrementBtn, {
+                className: 'quantityBtn increment',
+                type: 'button',
+                value: '+',
+                onclick: () => {
+                    productToCart(id)
+                }
+            })
+
+
+            quantity_nav.append(dicrementBtn, productQuantity, incrementBtn)
+            
+            let priceCont = document.createElement('div')
+            priceCont.setAttribute(Attributes.class, 'priceCont')
+
+            let priceText = document.createElement('p')
+            priceText.append(`${price}`)
+            priceCont.append(priceText)
+
+            productItems.append(cont1, cont2, quantity_nav, priceCont)
+            cartContainer.append(productItems)
+        }
+
+        }   
+
+}
+    
+document.querySelector('#cart_icon').addEventListener('click', () => {
+    displayToCart()
+})
+
+document.querySelector('.removeBtn').addEventListener('click', () => {
+    localStorage.removeItem('cartItems')
+})
+
+
+
+function productToCart(id, product_photo, product_name, description, price) {
+    
     if (!localStorage.getItem('cartItems') || localStorage.getItem('cartItems').length <= 0) {
         const cart = []
         const quantity = 1
@@ -135,42 +244,22 @@ function productToCart(id, product_photo, product_name, description, price) {
 
 }
 
-function displayToCart() {
-    const item = JSON.parse(localStorage.getItem('cartItems'))
+
+function dicrementQuantity(id) {
+
+    if (localStorage.getItem('cartItems').length > 0) {
+
+        const currentItem = JSON.parse(localStorage.getItem('cartItems'))
+        const itemExist = currentItem.some(item => item.id == id)
     
-    const cartContainer = document.querySelector('#cartProductContainer')
-    if (!item || item.length <= 0) {
-        cartContainer.innerHTML = `<p style="color: black; text-align: center; ">No Item</p>`
-    } else {
-        cartContainer.innerHTML = ''
-        item.map(val => {
-            cartContainer.innerHTML += `
-            <div class="productItems">
-                <div class="cont1">
-                    <span><img src="../Assets/Icons/wishlist logo.svg" alt="" class="nav_icons"></span>
-                    <img src="${val.product_photo}" alt="" class="productImg">
-                </div>
-                <div class="cont2">
-                    <h6 class="productName">${val.product_name}</h6>
-                    <p class="productDescription">${val.description}</p>
-                </div>
-                <div class="quantity_nav">
-                    <input class="quantityBtn dicrement" type="button" value="-"></input>
-                    <p class="productQuantity">${val.quantity}</p>
-                    <input class="quantityBtn increment" type="button" value="+"></input>
-                </div>
-                <div class="priceCont">
-                    <p>${val.price}</p>
-                </div>
-            </div>`
-        })
-    }   
+        if (itemExist) {
+            const index = currentItem.findIndex(item => item.id == id)
+            currentItem[index].quantity -= 1;
+        } else {
+            console.log('dicrement quantity did not work')
+        }
+
+        return localStorage.setItem('cartItems', JSON.stringify(currentItem))
+    }
+    
 }
-
-document.querySelector('#cart_icon').addEventListener('click', () => {
-    displayToCart()
-})
-
-document.querySelector('.removeBtn').addEventListener('click', () => {
-    localStorage.removeItem('cartItems')
-})
