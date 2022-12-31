@@ -1,6 +1,6 @@
 let xmldata = document.getElementById('xmldata')
 let shoe = xmldata.getElementsByTagName('Shoe')
- 
+
 const Attributes = {
     class: 'class',
     id: 'id',
@@ -98,7 +98,6 @@ function displayToCart() {
         cartContainer.innerHTML = `<p style="color: black; text-align: center; ">No Item</p>`
     } else {
         cartContainer.innerHTML = ''
-
         for (let i = 0; i < item.length; i++){
 
             let id = item[i].id
@@ -167,7 +166,7 @@ function displayToCart() {
                 type: 'button',
                 value: '+',
                 onclick: () => {
-                    productToCart(id)
+                    productToCart(id, price) 
                 }
             })
 
@@ -198,7 +197,6 @@ document.querySelector('.removeBtn').addEventListener('click', () => {
 })
 
 
-
 function productToCart(id, product_photo, product_name, description, price) {
     
     if (!localStorage.getItem('cartItems') || localStorage.getItem('cartItems').length <= 0) {
@@ -218,14 +216,13 @@ function productToCart(id, product_photo, product_name, description, price) {
         return localStorage.setItem('cartItems', JSON.stringify(cart))
     }
 
-
     if (localStorage.getItem('cartItems').length > 0) {
         const currentItem = JSON.parse(localStorage.getItem('cartItems'))
 
         const itemExist = currentItem.some(item => item.id == id)
+        const index = currentItem.findIndex(item => item.id == id);
 
         if (itemExist) {
-            const index = currentItem.findIndex(item => item.id == id);
             currentItem[index].quantity += 1;
         } else {
             const quantity = 1
@@ -251,15 +248,24 @@ function dicrementQuantity(id) {
 
         const currentItem = JSON.parse(localStorage.getItem('cartItems'))
         const itemExist = currentItem.some(item => item.id == id)
-    
+        const index = currentItem.findIndex(item => item.id == id)
+        
         if (itemExist) {
-            const index = currentItem.findIndex(item => item.id == id)
             currentItem[index].quantity -= 1;
         } else {
-            console.log('dicrement quantity did not work')
+            console.log('dicrementing the product quantity did not work')
+        }
+
+        if (currentItem[index].quantity === 0) {
+
+            console.log(`${currentItem[index].product_name} will be deleted because the product quantity is already 0`)
+            alert(`${currentItem[index].product_name} will be deleted because the product quantity is already 0`)
+
+            currentItem.splice(index, 1)
+        } else {
+            console.log(`${currentItem[index].product_name} is not deleted, quantity is ${currentItem[index].quantity}`)
         }
 
         return localStorage.setItem('cartItems', JSON.stringify(currentItem))
-    }
-    
+    } 
 }
