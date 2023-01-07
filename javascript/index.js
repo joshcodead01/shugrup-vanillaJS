@@ -60,14 +60,16 @@ for (let i = 0; i < shoe.length; i++) {
     //object for the design of buttons
     const buttondesign = new card_buttons('add_to_cart', 'add_to_favorite ml-4', 'Add to Cart', 'Favorite ♡')
     let Add_to_cart = document.createElement('input')
-    Add_to_cart.setAttribute(Attributes.inputType, 'button')
+    Add_to_cart.setAttribute(Attributes.inputType, 'submit')
     Add_to_cart.setAttribute(Attributes.inputValue, buttondesign.value1)
     Add_to_cart.setAttribute(Attributes.class, buttondesign.btn1_design)
 
+
     Add_to_cart.addEventListener('click', () => {
         productToCart(id, product_photo, product_name, description, price)
+        cartNumber()
     })
-    
+
     
     let Wishlist = document.createElement('input')
     Wishlist.setAttribute(Attributes.inputType, 'button')
@@ -88,6 +90,10 @@ for (let i = 0; i < shoe.length; i++) {
 }
 
 
+document.querySelector('#cart_icon').addEventListener('click', () => {
+    displayToCart()
+})
+
 
 
 function displayToCart() {
@@ -100,12 +106,12 @@ function displayToCart() {
         cartContainer.innerHTML = ''
         for (let i = 0; i < item.length; i++){
 
-            let id = item[i].id
-            let product_photo = item[i].product_photo
-            let product_name = item[i].product_name
-            let description = item[i].description
-            let price = item[i].price
-            let quantity = item[i].quantity
+            const id = item[i].id
+            const product_photo = item[i].product_photo
+            const product_name = item[i].product_name
+            const description = item[i].description
+            const price = item[i].price
+            const quantity = item[i].quantity
 
             const productItems = document.createElement('div')
             productItems.setAttribute(Attributes.class, 'productItems')
@@ -151,8 +157,8 @@ function displayToCart() {
                 type: 'button',
                 value: '-',
                 onclick: () => {
-                    console.log('decrement')
                     dicrementQuantity(id)
+                    cartNumber()
                 }
             })
 
@@ -166,7 +172,7 @@ function displayToCart() {
                 type: 'button',
                 value: '+',
                 onclick: () => {
-                    productToCart(id, price) 
+                    incrementQuantity(id)
                 }
             })
 
@@ -177,6 +183,7 @@ function displayToCart() {
             priceCont.setAttribute(Attributes.class, 'priceCont')
 
             let priceText = document.createElement('p')
+            priceText.setAttribute(Attributes.class, 'priceText')
             priceText.append(`${price}`)
             priceCont.append(priceText)
 
@@ -188,13 +195,13 @@ function displayToCart() {
 
 }
     
-document.querySelector('#cart_icon').addEventListener('click', () => {
-    displayToCart()
-})
+
 
 document.querySelector('.removeBtn').addEventListener('click', () => {
     localStorage.removeItem('cartItems')
+    location.reload()
 })
+
 
 
 function productToCart(id, product_photo, product_name, description, price) {
@@ -205,7 +212,7 @@ function productToCart(id, product_photo, product_name, description, price) {
         cart.push({
             id,
             product_photo,
-            product_name, 
+            product_name,
             description,
             quantity, 
             price
@@ -218,12 +225,20 @@ function productToCart(id, product_photo, product_name, description, price) {
 
     if (localStorage.getItem('cartItems').length > 0) {
         const currentItem = JSON.parse(localStorage.getItem('cartItems'))
-
         const itemExist = currentItem.some(item => item.id == id)
         const index = currentItem.findIndex(item => item.id == id);
 
         if (itemExist) {
             currentItem[index].quantity += 1;
+            //updating product quantity display
+            try {
+                const quantityElement = document.getElementsByClassName('productQuantity')
+                quantityElement[index].innerText = currentItem[index].quantity
+                
+            } catch (error) {
+                //catching error
+            }
+            
         } else {
             const quantity = 1
             currentItem.push({
@@ -242,30 +257,85 @@ function productToCart(id, product_photo, product_name, description, price) {
 }
 
 
+
 function dicrementQuantity(id) {
+
+    const currentItem = JSON.parse(localStorage.getItem('cartItems'))
+    const itemExist = currentItem.some(item => item.id == id)
+    const index = currentItem.findIndex(item => item.id == id)
 
     if (localStorage.getItem('cartItems').length > 0) {
 
-        const currentItem = JSON.parse(localStorage.getItem('cartItems'))
-        const itemExist = currentItem.some(item => item.id == id)
-        const index = currentItem.findIndex(item => item.id == id)
         
         if (itemExist) {
             currentItem[index].quantity -= 1;
+
+            //updating product quantity display
+            const quantityElement = document.getElementsByClassName('productQuantity')
+            quantityElement[index].innerText = currentItem[index].quantity
+
+            const priceProduct = currentItem[index].price * currentItem[index].quantity
+            document.querySelector('.priceText').innerText = priceProduct
+
         } else {
             console.log('dicrementing the product quantity did not work')
         }
 
         if (currentItem[index].quantity === 0) {
 
-            console.log(`${currentItem[index].product_name} will be deleted because the product quantity is already 0`)
-            alert(`${currentItem[index].product_name} will be deleted because the product quantity is already 0`)
-
             currentItem.splice(index, 1)
+            location.reload()
+
+        } 
+
+        return localStorage.setItem('cartItems', JSON.stringify(currentItem))
+
+    } 
+}
+
+
+function incrementQuantity(id, product_photo, product_name, description, price) {
+
+    if (localStorage.getItem('cartItems').length > 0) {
+        const currentItem = JSON.parse(localStorage.getItem('cartItems'))
+        const itemExist = currentItem.some(item => item.id == id)
+        const index = currentItem.findIndex(item => item.id == id);
+
+        if (itemExist) {
+            currentItem[index].quantity += 1
+            //updating product quantity display
+            const quantityElement = document.getElementsByClassName('productQuantity')
+            quantityElement[index].innerText = currentItem[index].quantity
+
+            const priceProduct = currentItem[index].price * currentItem[index].quantity
+            document.querySelector('.priceText').innerText = priceProduct
+                        
         } else {
-            console.log(`${currentItem[index].product_name} is not deleted, quantity is ${currentItem[index].quantity}`)
+            const quantity = 1
+            currentItem.push({
+                id,
+                product_photo,
+                product_name,
+                description,
+                quantity,
+                price,
+            })
         }
 
         return localStorage.setItem('cartItems', JSON.stringify(currentItem))
-    } 
+    }
+
 }
+
+
+function cartNumber() {
+    let items = JSON.parse(localStorage.getItem('cartItems'))
+
+    if (!items) {
+        document.querySelector('#cart-number').innerText = 0
+    } else {
+        document.querySelector('#cart-number').innerText = items.length
+    }
+}
+
+cartNumber()
