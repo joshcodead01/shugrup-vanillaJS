@@ -9,11 +9,7 @@
     <title>Shugrup | Store</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../public/styles/index.css">
 </head>
 
 <body>
@@ -39,7 +35,7 @@
             <a class="navbar-brand mx-2" href="home.html">SHUGRUP</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <img src="../Assets/Icons/navbar toggle.svg" class="toggle_icons">
+                <img src="../public/assets/Icons/navbar toggle.svg" class="toggle_icons">
             </button>
 
             <div class="collapse navbar-collapse mt-2 mb-2" id="navbarSupportedContent">
@@ -64,12 +60,12 @@
                 </ul>
                 <div class="d-flex align-items-center mt-2">
                     <form class="searching_bar ml-2">
-                        <img class="Nav_Icons" id="search_icon" src="../Assets/Icons/search icon.svg">
+                        <img class="Nav_Icons" id="search_icon" src="../public/assets/Icons/search icon.svg">
                         <input type="text" class="search_input" placeholder="Search" aria-label="Search">
                     </form>
                     <span  id="cart-number" style="color: darkcyan; font-weight: bold;">0</span>
-                    <img src="../Assets/Icons/cart logo.svg" class="Nav_Icons mr-4" id="cart_icon" data-toggle="modal" data-target="#exampleModal">
-                    <img src="../Assets/Icons/wishlist logo.svg" class="Nav_Icons mr-4" id="wishlist_icon" data-toggle="modal" data-target="#exampleModalCenter">
+                    <img src="../public/assets/Icons/cart logo.svg" class="Nav_Icons mr-4" id="cart_icon" data-toggle="modal" data-target="#exampleModal">
+                    <img src="../public/assets/Icons/wishlist logo.svg" class="Nav_Icons mr-4" id="wishlist_icon" data-toggle="modal" data-target="#exampleModalCenter">
                 </div>
             </div>
         </div>
@@ -164,16 +160,16 @@
                     <div class="col mx-auto mt-3 ">
                         <h5 class="text-uppercase mb-4 font-weight-bold" style="color: white;">Contact Us</h5>
                         <p>
-                            <i><img src="../Assets/Icons/home icon.svg " class="mr-2 "></i>Hagonoy, Bulacan 3002, Philippines
+                            <i><img src="../public/assets/Icons/home icon.svg " class="mr-2 "></i>Hagonoy, Bulacan 3002, Philippines
                         </p>
                         <p>
-                            <i><img src="../Assets/Icons/opertion time icon.svg " class="mr-2 "></i>Monday to Friday, 10am to 7pm [Including Public Holidays]
+                            <i><img src="../public/assets/Icons/opertion time icon.svg " class="mr-2 "></i>Monday to Friday, 10am to 7pm [Including Public Holidays]
                         </p>
                         <p>
-                            <i><img src="../Assets/Icons/call icon.svg " class="mr-2 "></i>+63-285-400-390
+                            <i><img src="../public/assets/Icons/call icon.svg" class="mr-2 "></i>+63-285-400-390
                         </p>
                         <p>
-                            <i><img src="../Assets/Icons/email icon.svg " class="mr-2 "></i>ShugrupCompany@gmail.com
+                            <i><img src="../public/assets/Icons/email icon.svg " class="mr-2 "></i>ShugrupCompany@gmail.com
                         </p>
                     </div>
                 </div>
@@ -189,33 +185,11 @@
         </div>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
-    <xml id="xmldata" style="display: none;">
-        <Shoes>
-            <Shoe>
-                <productImg>..\Assets\Images\Nike\Nike Metcon 7.webp</productImg>
-                <name>Nike Metcon 7</name>
-                <description>Men's Shoes</description>
-                <price>7095</price>
-            </Shoe>
-            <Shoe>
-                <productImg>..\Assets\Images\Nike\Nike Air Max 90 SE.webp</productImg>
-                <name>Nike Air Max 90 SE</name>
-                <description>Men's Shoes</description>
-                <price>7095</price>
-            </Shoe>
-            <Shoe>
-                <productImg>..\Assets\Images\Nike\Nike Air Max 97.webp</productImg>
-                <name>Nike Air Max 97 SE</name>
-                <description>Men's Shoes</description>
-                <price>9095</price>
-            </Shoe>
-        </Shoes>
-    </xml>
-
-
-    <script src="../javascript/index.js" async></script>
-
+    <script src="../src/index.js" async></script>
 </body>
 
 </html>

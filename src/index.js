@@ -1,5 +1,3 @@
-let xmldata = document.getElementById('xmldata')
-let shoe = xmldata.getElementsByTagName('Shoe')
 
 const Attributes = {
     class: 'class',
@@ -20,74 +18,81 @@ class card_buttons {
     }
 }
 
-for (let i = 0; i < shoe.length; i++) {
-    const id = i + 1
-    const product_photo = shoe[i].children[0].firstChild.data
-    const product_name = shoe[i].children[1].firstChild.data
-    const description = shoe[i].children[2].firstChild.data
-    const price = Number(shoe[i].children[3].firstChild.data)
+fetch('/products.json')
+    .then(res => res.json())
+    .then(data => {
 
-    let card_img = document.createElement('img')
-    card_img.setAttribute('class', 'card-img-top' )
-    card_img.setAttribute(Attributes.src, product_photo)
-    
-    const card_body = document.createElement('div')
-    card_body.setAttribute(Attributes.class, 'card-body')
+    data.Shoes.forEach((item, index ) => {
+        const id = index + 1
+        const product_photo = item.productImg
+        const product_name = item.name
+        const description = item.description
+        const price = Number(item.price)
 
-    // parts of card_body
-    let card_title = document.createElement('h6')
-    card_title.setAttribute(Attributes.class, 'card-title')
-    card_title.append(product_name)
-    
-    let card_text = document.createElement('p')
-    card_text.setAttribute(Attributes.class, 'card-text')
-    card_text.append(description)
-    
-    let card_text_price = document.createElement('p')
-    card_text_price.setAttribute(Attributes.class, 'card-text font-weight-bold')
-    card_text_price.setAttribute(Attributes.style, 'color: green')
-    card_text_price.append(price)
-    
-    
-    card_body.append(card_title, card_text, card_text_price)
-    // ***
-    
-    const card_footer = document.createElement('div')
-    card_footer.setAttribute(Attributes.class, 'card-footer bg-white d-flex justify-content-center')
-    
-    // parts of card_footer
-    
-    //object for the design of buttons
-    const buttondesign = new card_buttons('add_to_cart', 'add_to_favorite ml-4', 'Add to Cart', 'Favorite ♡')
-    let Add_to_cart = document.createElement('input')
-    Add_to_cart.setAttribute(Attributes.inputType, 'submit')
-    Add_to_cart.setAttribute(Attributes.inputValue, buttondesign.value1)
-    Add_to_cart.setAttribute(Attributes.class, buttondesign.btn1_design)
+        let card_img = document.createElement('img')
+        card_img.setAttribute('class', 'card-img-top' )
+        card_img.setAttribute(Attributes.src, product_photo)
+        
+        const card_body = document.createElement('div')
+        card_body.setAttribute(Attributes.class, 'card-body')
+
+        // parts of card_body
+        let card_title = document.createElement('h6')
+        card_title.setAttribute(Attributes.class, 'card-title')
+        card_title.append(product_name)
+        
+        let card_text = document.createElement('p')
+        card_text.setAttribute(Attributes.class, 'card-text')
+        card_text.append(description)
+        
+        let card_text_price = document.createElement('p')
+        card_text_price.setAttribute(Attributes.class, 'card-text font-weight-bold')
+        card_text_price.setAttribute(Attributes.style, 'color: green')
+        card_text_price.append(price)
+        
+        
+        card_body.append(card_title, card_text, card_text_price)
+        // ***
+        
+        const card_footer = document.createElement('div')
+        card_footer.setAttribute(Attributes.class, 'card-footer bg-white d-flex justify-content-center')
+        
+        // parts of card_footer
+        
+        //object for the design of buttons
+        const buttondesign = new card_buttons('add_to_cart', 'add_to_favorite ml-4', 'Add to Cart', 'Favorite ♡')
+        let Add_to_cart = document.createElement('input')
+        Add_to_cart.setAttribute(Attributes.inputType, 'submit')
+        Add_to_cart.setAttribute(Attributes.inputValue, buttondesign.value1)
+        Add_to_cart.setAttribute(Attributes.class, buttondesign.btn1_design)
 
 
-    Add_to_cart.addEventListener('click', () => {
-        productToCart(id, product_photo, product_name, description, price)
-        cartNumber()
-    })
+        Add_to_cart.addEventListener('click', () => {
+            productToCart(id, product_photo, product_name, description, price)
+            cartNumber()
+        })
 
-    
-    let Wishlist = document.createElement('input')
-    Wishlist.setAttribute(Attributes.inputType, 'button')
-    Wishlist.setAttribute(Attributes.inputValue, buttondesign.value2)
-    Wishlist.setAttribute(Attributes.class, buttondesign.btn2_design)
-    Wishlist.addEventListener('click', () => {
-        console.log('wishlist')
-    })
-    
-    card_footer.append(Add_to_cart, Wishlist)
-    // ***
-    
-    const card = document.createElement('div')
-    card.setAttribute(Attributes.class, 'card shadow p-3 mb-3 rounded')
-    card.append(card_img, card_body, card_footer)
-    
-    document.querySelector('.card-deck').append(card)
-}
+        
+        let Wishlist = document.createElement('input')
+        Wishlist.setAttribute(Attributes.inputType, 'button')
+        Wishlist.setAttribute(Attributes.inputValue, buttondesign.value2)
+        Wishlist.setAttribute(Attributes.class, buttondesign.btn2_design)
+        Wishlist.addEventListener('click', () => {
+            console.log('wishlist')
+        })
+        
+        card_footer.append(Add_to_cart, Wishlist)
+        // ***
+        
+        const card = document.createElement('div')
+        card.setAttribute(Attributes.class, 'card shadow p-3 mb-3 rounded')
+        card.append(card_img, card_body, card_footer)
+        
+        document.querySelector('.card-deck').append(card)
+    }
+
+)})
+
 
 
 document.querySelector('#cart_icon').addEventListener('click', () => {
@@ -123,7 +128,7 @@ function displayToCart() {
 
             const nav_icons = document.createElement('img')
             Object.assign(nav_icons, {
-                src: '../Assets/Icons/wishlist logo.svg',
+                src: '../public/assets/Icons/wishlist logo.svg',
                 className: 'nav_icons'
             })
             span.append(nav_icons)
@@ -274,8 +279,6 @@ function dicrementQuantity(id) {
             const quantityElement = document.getElementsByClassName('productQuantity')
             quantityElement[index].innerText = currentItem[index].quantity
 
-            const priceProduct = currentItem[index].price * currentItem[index].quantity
-            document.querySelector('.priceText').innerText = priceProduct
 
         } else {
             console.log('dicrementing the product quantity did not work')
@@ -307,8 +310,9 @@ function incrementQuantity(id, product_photo, product_name, description, price) 
             const quantityElement = document.getElementsByClassName('productQuantity')
             quantityElement[index].innerText = currentItem[index].quantity
 
-            const priceProduct = currentItem[index].price * currentItem[index].quantity
-            document.querySelector('.priceText').innerText = priceProduct
+            const prodPrice = currentItem[index].price * currentItem[index].quantity
+            let priceElem = document.createElement("span");
+            priceElem.innerText = prodPrice;
                         
         } else {
             const quantity = 1
@@ -324,12 +328,11 @@ function incrementQuantity(id, product_photo, product_name, description, price) 
 
         return localStorage.setItem('cartItems', JSON.stringify(currentItem))
     }
-
 }
 
 
 function cartNumber() {
-    let items = JSON.parse(localStorage.getItem('cartItems'))
+    const items = JSON.parse(localStorage.getItem('cartItems'))
 
     if (!items) {
         document.querySelector('#cart-number').innerText = 0
