@@ -2,18 +2,18 @@
 <html>
 
 <head>
-    <title>Shugrup | Home</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="../public/styles/home.css">
-
+    <link rel="stylesheet" href="/styles/index.css">
 </head>
 
 <body>
+
     <div class="top_container">
         <div class="container-fluid d-flex justify-content-center">
             <div id="carouselExampleSlidesOnly" class="carousel slide carousel_txt" data-ride="carousel">
@@ -32,10 +32,10 @@
     <!-- Image and text -->
     <nav class="navbar navbar-expand-lg border-bottom border-grey">
         <div class="container-fluid">
-            <a class="navbar-brand mx-2" href="#">SHUGRUP</a>
+            <a class="navbar-brand mx-2" href="home.html">SHUGRUP</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <img src="../public/assets/Icons/navbar toggle.svg" class="toggle_icons">
+                <img src="/assets/Icons/navbar toggle.svg" class="toggle_icons">
             </button>
 
             <div class="collapse navbar-collapse mt-2 mb-2" id="navbarSupportedContent">
@@ -43,7 +43,7 @@
                     <li class="nav-item ml-4">
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="../views/index.html">All</a>
+                        <a class="nav-link active" href="#">All</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Nike</a>
@@ -60,40 +60,67 @@
                 </ul>
                 <div class="d-flex align-items-center mt-2">
                     <form class="searching_bar ml-2">
-                        <img class="Nav_Icons" id="search_icon" src="../public/assets/Icons/search icon.svg">
+                        <img class="Nav_Icons" id="search_icon" src="/assets/Icons/search icon.svg">
                         <input type="text" class="search_input" placeholder="Search" aria-label="Search">
                     </form>
-                    <img src="../public/assets/Icons/cart logo.svg" class="Nav_Icons mr-4" id="cart_icon" data-toggle="modal" data-target="#exampleModal">
-                    <img src="../public/assets/Icons/wishlist logo.svg" class="Nav_Icons mr-4" id="wishlist_icon" data-toggle="modal" data-target="#exampleModalCenter">
+                    <span  id="cart-number" style="color: darkcyan; font-weight: bold;">0</span>
+                    <img src="/assets/Icons/cart logo.svg" class="Nav_Icons mr-4" id="cart_icon" data-toggle="modal" data-target="#exampleModal">
+                    <img src="/assets/Icons/wishlist logo.svg" class="Nav_Icons mr-4" id="wishlist_icon" data-toggle="modal" data-target="#exampleModalCenter">
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Cart Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1 " role="dialog " aria-labelledby="exampleModalLabel " aria-hidden="true ">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document ">
-            <div class="modal-content " style="border-radius: 25px; ">
-                <div class="modal-header ">
-                    <h6 class="modal-title " id="exampleModalLabel ">Your Shopping Cart</h6>
-                    <a href="# " role="button " style="color: red; font-size: 13px; ">Remove All</a>
-                </div>
-                <div class="modal-body ">
-                    <div class="container ">
-                        <p style="color: black; text-align: center; ">No Item</p>
-                    </div>
-                </div>
-                <div class="modal-footer ">
-                    <input type="button " value="Checkout " class="cart_modal_btn "></input>
-                </div>
-            </div>
+    <!--Shoe Section-->
+    <div class="container mt-4">
+        <div class="card-deck">
+            <!-- all shoe will be displayed here -->
         </div>
     </div>
 
 
 
+    <!-- Cart Modal -->
+    <div class="modal fade " id="exampleModal" tabindex="-1 " role="dialog " aria-labelledby="exampleModalLabel " aria-hidden="true ">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document ">
+            <div class="modal-content " style="border-radius: 25px; width: 600px;">
+                <div class="modal-header ">
+                    <h6 class="modal-title " id="exampleModalLabel ">Your Shopping Cart</h6>
+                    <input type="button" value="Remove All" class="removeBtn" data-toggle="modal" data-target="#exampleModal">
+                </div>
+                <div class="modal-body ">
+                    <div id="cartProductContainer" class="container">
+                        <!-- products will be display here -->
+
+                        <!-- <div class="productItems">
+                            <div class="cont1">
+                                <span><img src="../Assets/Icons/wishlist logo.svg" alt="" class="nav_icons"></span>
+                                <img src="../Assets/Images/Nike/Nike Metcon 7.webp" alt="" class="productImg">
+                            </div>
+                            <div class="cont2">
+                                <h6 class="productName">Product Name</h6>
+                                <p class="productDescription">Description</p>
+                            </div>
+                            <div class="quantity_nav">
+                                <input class="quantityBtn" type="button" value="-"></input>
+                                <p class="productQuantity">0</p>
+                                <input class="quantityBtn" type="button" value="+"></input>
+                            </div>
+                            <div class="priceCont">
+                                <p>7000</p>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="modal-footer ">
+                    <input type="button" value="Checkout " class="cart_modal_btn"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Wishlist Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1 " role="dialog " aria-labelledby="exampleModalCenterTitle " aria-hidden="true ">
+    <div class="modal fade " id="exampleModalCenter" tabindex="-1 " role="dialog " aria-labelledby="exampleModalCenterTitle " aria-hidden="true ">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document ">
             <div class="modal-content " style="border-radius: 25px; ">
                 <div class="modal-header d-flex justify-content-center " style="background-color: crimson; ">
@@ -108,59 +135,7 @@
         </div>
     </div>
 
-    <!-- for front banner -->
-    <div class="card mb-3 mt-5">
-        <div class="pb-2 pt-2 bg-light">
-            <h6 class="text-center">When the feet are comfortable, so is the mind, body, and soul.</h6>
-        </div>
 
-        <img src="../public/assets/Images/front-photo.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title text-center text-uppercase mb-4 font-weight-bold " style="font-size: 35px; font-family: 'Oswald', sans-serif;">Shoe Sanctuary</h5>
-            <div class="d-flex justify-content-center">
-                <a href="../views/login.html"><input type="button" value="Shop Now" class="shopnow_btn"></a>
-            </div>
-            <div class="d-flex justify-content-center mt-3">
-                <a href="../views/login.html"><input type="button" value="Login" style="background-color: crimson;" class="shopnow_btn"></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Team Banner -->
-    <div class="container-fluid mt-5 pt-4 bg-dark">
-        <h2 class="text-center text-warning">Our Team</h2>
-        <div class="container" style="border: 1px solid white; width: 130px;"></div>
-        <div class="container bg-dark">
-            <div class="card-group mt-4">
-                <div class="card bg-dark border-dark">
-                    <img src="../public/assets/Images/Our Team Profile/joshua zaspa profile.jpg" class="card-img-top rounded-circle w-75 mx-auto">
-                    <div class="card-body">
-                        <h5 class="card-title text-center" style="color: white;">Joshua Zaspa</h5>
-                    </div>
-                </div>
-                <div class="card bg-dark border-dark">
-                    <img src="../public/assets/Images/Our Team Profile/aly santos profile.jpg" class="card-img-top rounded-circle w-75 mx-auto">
-                    <div class="card-body">
-                        <h5 class="card-title text-center" style="color: white;">Yla Nicolette Santos</h5>
-                    </div>
-                </div>
-                <div class="card bg-dark border-dark">
-                    <img src="../public/assets/Images/Our Team Profile/jade libao profile.jpg" class="card-img-top rounded-circle w-75 mx-auto">
-                    <div class="card-body">
-                        <h5 class="card-title text-center" style="color: white;">Jade Libao</h5>
-                    </div>
-                </div>
-                <div class="card bg-dark border-dark">
-                    <img src="../public/assets/Images/Our Team Profile/arthur estrada profile.jpg" class="card-img-top rounded-circle w-75 mx-auto">
-                    <div class="card-body">
-                        <h5 class="card-title text-center" style="color: white;">Arthur Estrada</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- footer  -->
     <footer class="text-white pt-5 mt-4 " style="background-color: black; ">
         <div class="container ">
             <div class="row ">
@@ -185,16 +160,16 @@
                     <div class="col mx-auto mt-3 ">
                         <h5 class="text-uppercase mb-4 font-weight-bold" style="color: white;">Contact Us</h5>
                         <p>
-                            <i><img src="../public/assets/Icons/home icon.svg" class="mr-2 "></i>Hagonoy, Bulacan 3002, Philippines
+                            <i><img src="/assets/Icons/home icon.svg " class="mr-2 "></i>Hagonoy, Bulacan 3002, Philippines
                         </p>
                         <p>
-                            <i><img src="../public/assets/Icons/opertion time icon.svg" class="mr-2 "></i>Monday to Friday, 10am to 7pm [Including Public Holidays]
+                            <i><img src="/assets/Icons/opertion time icon.svg " class="mr-2 "></i>Monday to Friday, 10am to 7pm [Including Public Holidays]
                         </p>
                         <p>
-                            <i><img src="../public/assets/Icons/call icon.svg" class="mr-2 "></i>+63-285-400-390
+                            <i><img src="/assets/Icons/call icon.svg" class="mr-2 "></i>+63-285-400-390
                         </p>
                         <p>
-                            <i><img src="../public/assets/Icons/email icon.svg " class="mr-2 "></i>ShugrupCompany@gmail.com
+                            <i><img src="/assets/Icons/email icon.svg " class="mr-2 "></i>ShugrupCompany@gmail.com
                         </p>
                     </div>
                 </div>
@@ -210,12 +185,12 @@
         </div>
     </footer>
 
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-    <script src="../src/index.js" async></script>
+    
+    <script src="/src/store.js" async></script>
+    <script src="/src/auth.js"></script>
 </body>
 
 </html>

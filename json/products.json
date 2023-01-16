@@ -1,19 +1,19 @@
 {
     "Shoes": [
         {
-            "productImg": "../public/assets/Images/Nike/Nike Metcon 7.webp",
+            "productImg": "../assets/Images/Nike/Nike Metcon 7.webp",
             "name": "Nike Metcon 7",
             "description": "Men's Shoe",
             "price": 7095
         },
         {
-            "productImg": "../public/assets/Images/Nike/Nike Air Max 90 SE.webp",
+            "productImg": "../assets/Images/Nike/Nike Air Max 90 SE.webp",
             "name": "Nike Air Max 90 SE",
             "description": "Men's Shoe",
             "price": 7095
         }, 
         {
-            "productImg": "../public/assets/Images/Nike/Nike Air Max 97.webp",
+            "productImg": "../assets/Images/Nike/Nike Air Max 97.webp",
             "name": "Nike Air Max 97",
             "description": "Men's Shoe",
             "price": 9095

@@ -1,7 +1,7 @@
 {
     "users": [
       {
-        "username": "Joshua Zaspa",
+        "username": "Admin",
         "password": "123123",
         "role": "ADMIN"
       },

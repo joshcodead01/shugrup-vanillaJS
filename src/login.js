@@ -3,7 +3,7 @@ const passwordInput = document.getElementById("password")
 
 const submitButton = document.querySelector("input[type='submit']")
 
-fetch("/users.json")
+fetch("../json/users.json")
   .then(response => response.json())
   .then(data => {
 
@@ -17,14 +17,45 @@ fetch("/users.json")
       const customer = data.users.find(user => user.username === username && user.password === password && user.role === 'CUSTOMER')
 
       if (admin) {
-          window.location.href = "/views/inventory.html"
+        token()
+        isLoggedIn()
+        window.location.href = "inventory.html"
+
       } else if (customer) {
-        window.location.href = "/views/index.html"
+        token()
+        isLoggedIn()
+        window.location.href = "store.html"
       } 
       else {
         alert("Invalid username or password.")
       }
 
-
     });
-  });
+});
+
+function token(){
+  const tokenGenerator = () => {
+
+    const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+  
+    const tokenLength = 8;
+  
+    let token = "";
+    for (let i = 0; i < tokenLength; i++) {
+
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      const randomChar = characters[randomIndex];
+  
+      token += randomChar;
+    }
+  
+    return token;
+  }
+
+  localStorage.setItem('auth-token', tokenGenerator())
+  
+}
+
+function isLoggedIn() {
+  localStorage.setItem('isLoggedIn', true)
+}

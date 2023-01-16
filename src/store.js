@@ -18,7 +18,7 @@ class card_buttons {
     }
 }
 
-fetch('/products.json')
+fetch('../json/products.json')
     .then(res => res.json())
     .then(data => {
 
@@ -128,7 +128,7 @@ function displayToCart() {
 
             const nav_icons = document.createElement('img')
             Object.assign(nav_icons, {
-                src: '../public/assets/Icons/wishlist logo.svg',
+                src: '../assets/Icons/wishlist logo.svg',
                 className: 'nav_icons'
             })
             span.append(nav_icons)
