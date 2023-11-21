@@ -1,0 +1,24 @@
+@import url('/styles/global.css');
+@import url('/styles/variables.css');
+
+.carousel-container {
+    background-color: var(--primary-main);
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 2s ease-in;
+}
+
+.carousel span {
+    min-width: 100%;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    color: var(--default-white);
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

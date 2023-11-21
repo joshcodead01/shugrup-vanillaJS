@@ -1,0 +1,61 @@
+@import url('colors.css');
+
+:root {
+
+    /* primary */
+    --primary-lighter:var(--blue-100);
+    --primary-light:var(--blue-300);
+    --primary-main:var(--blue-500);
+    --primary-dark:var(--blue-700);
+    --primary-darker:var(--blue-900);
+    --primary-contrast:var(--white);
+
+
+    /* default */
+    --default-primary:var(--black);
+    --default-secondary:var(--grey-700);
+    --default-tertiary:var(--grey-400);
+    --default-white:var(--white);
+
+
+    /* success */
+    --success-lighter:var(--green-100);
+    --success-light:var(--green-300);
+    --success-main:var(--green-500);
+    --success-dark:var(--green-700);
+    --success-darker:var(--green-900);
+    --success-contrast:var(--white);
+
+
+    /* warning */
+    --warning-lighter:var(--orange-100);
+    --warning-light:var(--orange-300);
+    --warning-main:var(--orange-500);
+    --warning-dark:var(--orange-700);
+    --warning-darker:var(--orange-900);
+    --warning-contrast:var(--white);
+
+
+    /* danger */
+    --danger-lighter:var(--red-100);
+    --danger-light:var(--red-300);
+    --danger-main:var(--red-500);
+    --danger-dark:var(--red-700);
+    --danger-darker:var(--red-900);
+    --danger-contrast:var(--white);
+
+
+    /* info */
+    --info-lighter:var(--teal-100);
+    --info-light:var(--teal-300);
+    --info-main:var(--teal-500);
+    --info-dark:var(--teal-700);
+    --info-darker:var(--teal-900);
+    --info-contrast:var(--white);
+
+
+    /* background */
+    --bg-body:#F5F5F5;;
+    --bg-surface:var(--white);
+    
+}

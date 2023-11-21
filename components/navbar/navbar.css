@@ -1,0 +1,111 @@
+@import url('/styles/variables.css');
+@import url('/styles/global.css');
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 75px;
+    padding: 12px 32px;
+    border-bottom: 0.8px solid var(--default-tertiary);
+    background: var(--bg-surface);
+}
+
+.navbar > div:first-child {
+    display: flex;
+    align-items: center;
+    width: auto;
+    gap: 56px;
+
+}
+
+.navbar-logo > img {
+    width: 128px;
+}
+
+.navbar_items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.nav_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 0px;
+}
+
+.nav_item:hover {
+    border-bottom: 2px solid var(--default-primary);
+}
+
+.nav_item > .nav_link {
+    color: var(--default-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+}
+
+
+.navbar > div:nth-child(2){
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.navbar > div:nth-child(2) > div {
+    display: flex;
+    gap: 24px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav_icons {
+    cursor: pointer;
+}
+
+.nav_icons:hover {
+    opacity: 0.2;
+}
+
+
+.search_bar {
+    display: flex;
+    padding: 12px 12px;
+    align-self: stretch;
+    border-radius: 25px;
+    background: #EBECEC;
+    border: none;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+
+}
+
+.search_bar:hover {
+    background-color: var(--default-tertiary);
+}
+
+.search_input {
+    border: none;
+    background: none;
+    color: var(--default-tertiary);
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.search_input:hover {
+    color: var(--default-primary);
+}
+
+.search_input:active, .search_input:focus {
+    border: none;
+    outline: none;
+    color: var(--default-primary);
+}

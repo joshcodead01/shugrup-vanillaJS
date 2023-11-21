@@ -27,7 +27,7 @@ p {
 
 .nav-link:hover {
     color: black;
-    text-decoration: underline 3px solid gold;
+    text-decoration: underline 3px solid darkcyan;
 }
 
 .navbar-brand {
