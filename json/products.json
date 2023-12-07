@@ -1,22 +1,125 @@
 {
-    "Shoes": [
+    "shoes": [
         {
-            "productImg": "../assets/Images/Nike/Nike Metcon 7.webp",
+            "productImg": "../assets/Images/Nike/3.webp",
             "name": "Nike Metcon 7",
-            "description": "Men's Shoe",
-            "price": 7095
+            "type": "Men's Shoe",
+            "price": 110.97,
+            "brand": "Nike",
+            "forGenders": ["Men", "Unisex"],
+            "forSports": "Basketball",
+            "productRanked": 1
         },
         {
-            "productImg": "../assets/Images/Nike/Nike Air Max 90 SE.webp",
+            "productImg": "../assets/Images/Nike/1.webp",
             "name": "Nike Air Max 90 SE",
-            "description": "Men's Shoe",
-            "price": 7095
+            "type": "Men's Shoe",
+            "price": 112.34,
+            "brand": "Nike",
+            "forGenders": ["Men", "Unisex"],
+            "forSports": "Basketball",
+            "productRanked": "no ranked"
+            
         }, 
         {
-            "productImg": "../assets/Images/Nike/Nike Air Max 97.webp",
+            "productImg": "../assets/Images/Adidas/1.webp",
+            "name": "Adidas Forum Low Shoes",
+            "type": "Men's Shoe",
+            "price": 114.75,
+            "brand": "Adidas",
+            "forGenders": ["Men", "Unisex"],
+            "forSports": "Basketball",
+            "productRanked": "no ranked"
+        }, 
+        {
+            "productImg": "../assets/Images/Nike/2.webp",
             "name": "Nike Air Max 97",
-            "description": "Men's Shoe",
-            "price": 9095
+            "type": "Men's Shoe",
+            "price": 113,
+            "brand": "Nike",
+            "forGenders": ["Men", "Unisex"],
+            "forSports": "Basketball",
+            "productRanked": 2
+        },
+        {
+            "productImg": "../assets/Images/Adidas/2.jpg",
+            "name": "Adidas Ownthegame Shoes",
+            "type": "Men's Shoe",
+            "price": 97,
+            "brand": "Adidas",
+            "forGenders": ["Men", "Unisex"],
+            "forSports": "Basketball",
+            "productRanked": "no ranked"
+        }, 
+        {
+            "productImg": "../assets/Images/Adidas/3.webp",
+            "name": "Adidas Pro N3xt 2021 Shoes",
+            "type": "Men's Shoe",
+            "price": 98.50,
+            "brand": "Adidas",
+            "forGenders": ["Men", "Unisex"],
+            "forSports": "Basketball",
+            "productRanked": "no ranked"
+        }, 
+        {
+            "productImg": "../assets/Images/Puma/1.webp",
+            "name": "Puma Legacy `68",
+            "type": "Men's Shoe",
+            "price": 100,
+            "brand": "Puma",
+            "forGenders": ["Men", "Unisex"],
+            "forSports": "Basketball",
+            "productRanked": 3
+        },
+        {
+            "productImg": "../assets/Images/Puma/2.webp",
+            "name": "Puma Sky Modern",
+            "type": "Men's Shoe",
+            "price": 111.94,
+            "brand": "Pumas",
+            "forGenders": ["Men", "Unisex"],
+            "forSports": "Basketball",
+            "productRanked": 4
+        }, 
+        {
+            "productImg": "../assets/Images/Puma/3.webp",
+            "name": "Puma Triple",
+            "type": "Men's Shoe",
+            "price": 102.45,
+            "brand": "Puma",
+            "forGenders": ["Men", "Unisex"],
+            "forSports": "Basketball",
+            "productRanked": "no ranked"
+        },
+        {
+            "productImg": "../assets/Images/New Balance/1.webp",
+            "name": "NB Fresh Foam X 1080v11",
+            "type": "Men's Shoe",
+            "price": 160.50,
+            "brand": "New Balance",
+            "forGenders": ["Men", "Unisex"],
+            "forSports": "Basketball",
+            "productRanked": "no ranked"
+        },
+        {
+            "productImg": "../assets/Images/New Balance/2.webp",
+            "name": "NB Fresh Foam X 1080v12",
+            "type": "Men's Shoe",
+            "price": 159.99,
+            "brand": "New Balance",
+            "forGenders": ["Men", "Unisex"],
+            "forSports": "Basketball",
+            "productRanked": 5
+        }, 
+        {
+            "productImg": "../assets/Images/New Balance/3.webp",
+            "name": "NB Numeric 425",
+            "type": "Men's Shoe",
+            "price": 89.99,
+            "brand": "New Balance",
+            "forGenders": ["Men", "Unisex"],
+            "forSports": "Basketball",
+            "productRanked": "no ranked"
         }
        
     ]

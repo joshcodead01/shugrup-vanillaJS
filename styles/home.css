@@ -94,7 +94,7 @@
 }
 
 .hero_section_cta > .login_btn:hover {
-    opacity: 60%;
+    opacity: 0.6;
 }
 
 
@@ -132,3 +132,213 @@
     width: 148px;
     height: 96px;
 }
+
+
+/* Top Selling Product Section */
+.top_selling_products_container {
+    display: flex;
+    gap: 48px;
+    width: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+}
+
+.top_selling_products_container::-webkit-scrollbar {
+    display: none;
+}
+
+
+.top_selling_products_section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    margin: auto;
+    width: 1378px;
+}
+
+.top_selling_products_section > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+    width: 1377px;
+    margin: auto;
+}
+
+.top_selling_products_section > div > a {
+    display: flex;
+    width: 193px;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--default-primary);
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+}
+
+/* New Arrivals Section */
+.new_arrivals_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    margin: 32px 0px;
+}
+
+.new_arrivals_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    height: 100%;
+}
+
+
+/* Blogs Section */
+.blogs_section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: fit-content;
+    margin: 64px auto;
+    
+}
+
+.sections_title {
+    width: fit-content;
+    padding: 0 40px;
+}
+
+.blog_item {
+    height: fit-content;
+    position: relative;
+}
+
+.blog_cover {
+    width: 100%;
+    height: 496px;
+}
+
+.blog_item > .overlay {
+    position: absolute;
+    top: 0%;
+    display: flex;
+    padding: 8px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    transition: background-color 300ms ease-out;
+    cursor: pointer;
+}
+
+.blog_item > .overlay:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.blog_item > .overlay:hover .blog_subtitle {
+    display: block;
+}
+
+.blog_item > .overlay:hover .blog_cta {
+    display: block;
+}
+
+.blog_item > .overlay > div {
+    display: flex;
+    padding: 8px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    left: 72px;
+    bottom: 172px;
+    transition: background-color 300ms ease-out;
+}
+
+.blog_title {
+    color: var(--default-white);
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 8.25rem;
+    font-weight: 900;
+    line-height: 132px;
+    letter-spacing: -8px;
+    text-transform: uppercase;
+    width: auto;
+    text-orientation: sideways-right;
+  
+}
+
+.blog_subtitle {
+    display: none;
+    color: var(--default-white);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 4px;
+    transition: opacity 300ms ease-out;
+}
+
+.blog_cta {
+    display: none;
+    position: absolute;
+    right: 32px;
+    bottom: 16px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid var(--default-white);
+    padding-bottom: 4px;
+    margin: 12px;
+    color: var(--default-white);
+    text-align: right;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.blog_cta:hover {
+    opacity: 70%;
+    cursor: pointer;
+}
+
+
+
+/* signup section */
+.signup_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background: var(--default-tertiary);
+    padding: 48px;
+}
+
+.signup_cta {
+    display: flex;
+    width: 196px;
+    height: 48px;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 25px;
+    background: var(--primary-main);
+    color: var(--default-white);
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+    text-transform: uppercase;
+}
+

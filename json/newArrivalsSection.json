@@ -1,0 +1,14 @@
+{
+    "new_arrivals": [
+        {
+            "title": "Nike Latest",
+            "cover_img": "/assets/Images/nike_new_arrival_cover.png",
+            "brand_logo": "/assets/Icons/nike_logo.svg"
+        },
+        {
+            "title": "Puma Latest",
+            "cover_img": "/assets/Images/puma_new_arrival_cover.png",
+            "brand_logo": "/assets/Icons/puma_logo.svg"
+        }
+    ]
+}

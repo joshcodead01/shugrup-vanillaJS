@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/components/top-banner/top-banner.css">
+
+<div class="carousel-container">
+    <div class="carousel" id="word-carousel">
+        <span>Every shoe you find it.</span>
+        <span>Hassle free shoe shopping.</span>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+    const carousel = document.getElementById('word-carousel');
+    const words = document.getElementsByTagName('span');
+    const totalWords = words.length;
+    console.log(totalWords)
+
+    let currentIndex = 0;
+
+    function showNextWord() {
+        currentIndex = (currentIndex + 1) % totalWords;
+        updateCarousel();
+    }
+
+    function updateCarousel() {
+        const translateValue = -currentIndex * 100 + '%';
+        carousel.style.transform = 'translateX(' + translateValue + ')';
+    }
+
+    setInterval(showNextWord, 6000);
+    });
+</script>

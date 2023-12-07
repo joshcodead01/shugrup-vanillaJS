@@ -1,29 +1,27 @@
-fetch('/components/footer/footer.html')
+fetch('/components/top-banner/top-banner.html')
     .then(res => res.text())
     .then(html => {
-        loadFooter(html)
+        loadTopBanner(html)
     })
-    .catch(error => {
-        console.error('Error loading template: ', error);
+    .catch(err => {
+        console.error('Error loading template: ', err);
     })
 
 
-const loadFooter = (html) => {
-    class Footer extends HTMLElement {
+const loadTopBanner = (html) => {
+    class TopBanner extends HTMLElement {
         constructor() {
             super();
 
             const shadowRoot = this.attachShadow({mode: 'open'});
 
             const template = document.createElement('template');
-            template.setAttribute('class', 'footer_component')
             template.innerHTML = html;
 
             const clone = document.importNode(template.content, true);
             shadowRoot.appendChild(clone)
-
         }
     }
 
-    customElements.define('footer-component', Footer);
+    customElements.define('top-banner-component', TopBanner)
 }

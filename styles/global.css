@@ -19,6 +19,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
+    overflow-x: hidden;
 }
 
 main {
@@ -27,4 +28,20 @@ main {
 
 .footer_component{
     margin-top: auto;
+}
+
+.sections_title {
+    color: var(--default-primary, #0B0B0B);
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+input[type="button"]:hover {
+    cursor: pointer;
+    opacity: 0.6;
 }
