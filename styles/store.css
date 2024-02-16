@@ -1,0 +1,93 @@
+@import url('/styles/style-importer.css');
+
+
+main {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 72px 32px;
+    gap: 32px;
+    justify-content: start;
+}
+
+.product_category_filter {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height: 100vh;
+    gap: 16px;
+}
+
+.product_category_filter .category {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.product_category_filter .category .type {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.product_category_filter .items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+.product_category_filter .items > div {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.product_category_filter .items label {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.product_category_filter .items input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+
+}
+
+.product_category_filter .items input[type="checkbox"]:checked + #myCheckbox {
+    background: var(--primary-main);
+}
+
+/* Product Catalog */
+
+.product_catalog {
+    flex: 1;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 48px;
+    align-items: center;
+}
+
+.product_catalog .product_catalog_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    width: 100%;
+}
+
+.product_catalog .solid_button {
+    width: 400px;
+    height: 48px;
+    text-transform: uppercase;
+    font-weight: 16px;
+    font-weight: 700;
+    text-align: center;
+    color: var(--default-white);
+    background-color: var(--default-primary);
+    border-radius: 24px;
+    border: none;
+
+}

@@ -50,9 +50,15 @@
                 <h1 class="sections_title">Top Selling</h1>
                 <a href="">Show Now</a>
             </div>
-            <div class="top_selling_products_container">
+            <div class="top_selling_products_container snaps_inline" id="scroll-container">
                 <!-- Custom Web Components Insert Here-->
+
             </div>
+            <div id="scroll-buttons">
+                <button class="scroll-button" onclick="leftScroll()"> < </button>
+                <button class="scroll-button" onclick="rightScroll()"> > </button>
+            </div>
+            
         </div>
 
 
@@ -79,23 +85,35 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- sing up section -->
+        <div class="signup_section">
+            <p>Be the first to know about new arrivals</p>
+            <input type="button" value="SIGN UP FOR FREE" class="signup_cta">
+        </div>
     </main>
 
-
-    <!-- sing up section -->
-    <div class="signup_section">
-        <p>Be the first to know about new arrivals</p>
-        <input type="button" value="SIGN UP FOR FREE" class="signup_cta">
-    </div>
-
-
     <footer-component></footer-component>
+
+
+    <script>
+        const container = document.getElementById('scroll-container');
+
+        function leftScroll() {
+            container.scrollBy({ left: -350, behavior: 'smooth' });
+        }
+
+        function rightScroll() {
+            container.scrollBy({ left: 350, behavior: 'smooth' });
+        }
+
+    </script>
 
     <script src="/components/top-banner/top-banner.js"></script>
     <script src="/components/navbar/navbar.js"></script>
     <script src="/components/new-arrivals-card/new-arrivals-card.js"></script>
     <script src="/components/footer/footer.js"></script>
     <script src="/components/top-selling-product-card/top-selling-product-card.js"></script>
-    <script src="/src/home.js"></script>
 </body>
 </html>

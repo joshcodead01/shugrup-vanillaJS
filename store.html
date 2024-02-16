@@ -1,193 +1,113 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Store</title>
 
-    <link rel="stylesheet" href="/styles/index.css">
     <link rel="stylesheet" href="/styles/global.css">
+    <link rel="stylesheet" href="/styles/store.css">
 </head>
-
 <body>
 
-    <div class="top_container">
-        <div class="container-fluid d-flex justify-content-center">
-            <div id="carouselExampleSlidesOnly" class="carousel slide carousel_txt" data-ride="carousel">
-                <div class="carousel-inner mt-2">
-                    <div class="carousel-item active">
-                        <p class="d-flex justify-content-center">Every shoe you find it.</p>
+    <top-banner-component></top-banner-component>
+
+    <navbar-component></navbar-component>
+
+
+    <main>
+
+
+        <div class="product_category_filter">
+             <!-- Brand Category -->
+             <div class="category" id="brand_category">
+                <p class="type">Brand</p>
+                <div class="items">
+                    <div>
+                        <input type="checkbox" id="myCheckbox" name="myCheckbox" value="checkboxValue">
+                        <label for="myCheckbox">Nike</label>
                     </div>
-                    <div class="carousel-item">
-                        <p class="d-flex justify-content-center">Hassle free shoe shopping.</p>
+                    <div>
+                        <input type="checkbox" id="myCheckbox" name="myCheckbox" value="checkboxValue">
+                        <label for="myCheckbox">Adidas</label>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Image and text -->
-    <nav class="navbar navbar-expand-lg border-bottom border-grey">
-        <div class="container-fluid">
-            <a class="navbar-brand mx-2" href="home.html">SHUGRUP</a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <img src="/assets/Icons/navbar toggle.svg" class="toggle_icons">
-            </button>
-
-            <div class="collapse navbar-collapse mt-2 mb-2" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item ml-4">
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">All</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Nike</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Adidas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Puma</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">New Balance</a>
-                    </li>
-                </ul>
-                <div class="d-flex align-items-center mt-2">
-                    <form class="searching_bar ml-2">
-                        <img class="Nav_Icons" id="search_icon" src="/assets/Icons/search icon.svg">
-                        <input type="text" class="search_input" placeholder="Search" aria-label="Search">
-                    </form>
-                    <span  id="cart-number" style="color: darkcyan; font-weight: bold;">0</span>
-                    <img src="/assets/Icons/cart logo.svg" class="Nav_Icons mr-4" id="cart_icon" data-toggle="modal" data-target="#exampleModal">
-                    <img src="/assets/Icons/wishlist logo.svg" class="Nav_Icons mr-4" id="wishlist_icon" data-toggle="modal" data-target="#exampleModalCenter">
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!--Shoe Section-->
-    <div class="container mt-4">
-        <div class="card-deck">
-            <!-- all shoe will be displayed here -->
-        </div>
-    </div>
-
-
-
-    <!-- Cart Modal -->
-    <div class="modal fade " id="exampleModal" tabindex="-1 " role="dialog " aria-labelledby="exampleModalLabel " aria-hidden="true ">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document ">
-            <div class="modal-content " style="border-radius: 25px; width: 600px;">
-                <div class="modal-header ">
-                    <h6 class="modal-title " id="exampleModalLabel ">Your Shopping Cart</h6>
-                    <input type="button" value="Remove All" class="removeBtn" data-toggle="modal" data-target="#exampleModal">
-                </div>
-                <div class="modal-body ">
-                    <div id="cartProductContainer" class="container">
-                        <!-- products will be display here -->
-
-                        <!-- <div class="productItems">
-                            <div class="cont1">
-                                <span><img src="../Assets/Icons/wishlist logo.svg" alt="" class="nav_icons"></span>
-                                <img src="../Assets/Images/Nike/Nike Metcon 7.webp" alt="" class="productImg">
-                            </div>
-                            <div class="cont2">
-                                <h6 class="productName">Product Name</h6>
-                                <p class="productDescription">Description</p>
-                            </div>
-                            <div class="quantity_nav">
-                                <input class="quantityBtn" type="button" value="-"></input>
-                                <p class="productQuantity">0</p>
-                                <input class="quantityBtn" type="button" value="+"></input>
-                            </div>
-                            <div class="priceCont">
-                                <p>7000</p>
-                            </div>
-                        </div> -->
+                    <div>
+                        <input type="checkbox" id="myCheckbox" name="myCheckbox" value="checkboxValue">
+                        <label for="myCheckbox">Puma</label>
                     </div>
-                </div>
-                <div class="modal-footer ">
-                    <input type="button" value="Checkout " class="cart_modal_btn"></input>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Wishlist Modal -->
-    <div class="modal fade " id="exampleModalCenter" tabindex="-1 " role="dialog " aria-labelledby="exampleModalCenterTitle " aria-hidden="true ">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document ">
-            <div class="modal-content " style="border-radius: 25px; ">
-                <div class="modal-header d-flex justify-content-center " style="background-color: crimson; ">
-                    <h6 class="modal-title " id="exampleModalCenterTitle " style="color: white; ">Your Wishlist</h5>
-                </div>
-                <div class="modal-body ">
-                    <div class="container ">
-                        <p style="color: black; text-align: center; ">No Item</p>
+                    <div>
+                        <input type="checkbox" id="myCheckbox" name="myCheckbox" value="checkboxValue">
+                        <label for="myCheckbox">New Balance</label>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+
+            <div class="divider"></div>
 
 
-    <footer class="text-white pt-5 mt-4 " style="background-color: black; ">
-        <div class="container ">
-            <div class="row ">
-                <div class="col-sm ">
-                    <div class="col mx-auto mt-3 mr-5 ">
-                        <h5 class="text-uppercase mb-4 font-weight-bold" style="color: white;">Product Brands</h5>
-                        <p>
-                            <a href="https://www.nike.com/ph/ " class="product_brand ">Nike</a>
-                        </p>
-                        <p>
-                            <a href="https://www.adidas.com.ph/ " class="product_brand ">Adidas</a>
-                        </p>
-                        <p>
-                            <a href="https://ph.puma.com/ " class="product_brand ">Puma</a>
-                        </p>
-                        <p>
-                            <a href="https://www.newbalance.com/ " class="product_brand ">New Balance</a>
-                        </p>
+            <!-- Gender Category -->
+            <div class="category" id="gender_category">
+                <p class="type">Gender</p>
+                <div class="items">
+                    <div>
+                        <input type="checkbox" id="myCheckbox" name="myCheckbox" value="checkboxValue">
+                        <label for="myCheckbox">Man</label>
                     </div>
-                </div>
-                <div class="col-sm ">
-                    <div class="col mx-auto mt-3 ">
-                        <h5 class="text-uppercase mb-4 font-weight-bold" style="color: white;">Contact Us</h5>
-                        <p>
-                            <i><img src="/assets/Icons/home icon.svg " class="mr-2 "></i>Hagonoy, Bulacan 3002, Philippines
-                        </p>
-                        <p>
-                            <i><img src="/assets/Icons/opertion time icon.svg " class="mr-2 "></i>Monday to Friday, 10am to 7pm [Including Public Holidays]
-                        </p>
-                        <p>
-                            <i><img src="/assets/Icons/call icon.svg" class="mr-2 "></i>+63-285-400-390
-                        </p>
-                        <p>
-                            <i><img src="/assets/Icons/email icon.svg " class="mr-2 "></i>ShugrupCompany@gmail.com
-                        </p>
+                    <div>
+                        <input type="checkbox" id="myCheckbox" name="myCheckbox" value="checkboxValue">
+                        <label for="myCheckbox">Women</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="myCheckbox" name="myCheckbox" value="checkboxValue">
+                        <label for="myCheckbox">Unisex</label>
                     </div>
                 </div>
             </div>
+
+            <div class="divider"></div>
+
+
+            <!-- Shoe Type Category -->
+            <div class="category" id="gender_category">
+                <p class="type">Shoe Type</p>
+                <div class="items">
+                    <div>
+                        <input class="item_checkbox" type="checkbox" id="myCheckbox" name="myCheckbox" value="checkboxValue">
+                        <label for="myCheckbox">Lifestyle</label>
+                    </div>
+                    <div>
+                        <input class="item_checkbox" type="checkbox" id="myCheckbox" name="myCheckbox" value="checkboxValue">
+                        <label for="myCheckbox">Basketball</label>
+                    </div>
+                    <div>
+                        <input class="item_checkbox" type="checkbox" id="myCheckbox" name="myCheckbox" value="checkboxValue">
+                        <label for="myCheckbox">Football</label>
+                    </div>
+                    <div>
+                        <input class="item_checkbox" type="checkbox" id="myCheckbox" name="myCheckbox" value="checkboxValue">
+                        <label for="myCheckbox">Golf</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
         </div>
 
-        <div class="container mt-5" style="border: 1px solid grey;"></div>
 
-        <div class="container-fluid mt-2 d-flex justify-content-center" style="font-size: 14px; font-weight: lighter; font-family: Arial, Helvetica, sans-serif;">
-            <p class="mt-2">Copyright ©2022 All rights reserved by:</p>
-            <p class="ml-1 mt-1" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-style: oblique; color: gold; font-size: 20px;">SHUGRUP</p>
-
+        <div class="product_catalog">
+            <div class="product_catalog_container">
+                <!-- Custom Web Components Insert Here-->
+            </div>
+            <input class="solid_button" type="button" value="Show More">
         </div>
-    </footer>
+    </main>
 
-    
-    <script src="/src/store.js" async></script>
-    <script src="/src/auth.js"></script>
+    <footer-component></footer-component>
+
+    <script src="/components/top-banner/top-banner.js"></script>
+    <script src="/components/navbar/navbar.js"></script>
+    <script src="/components/product-card/product-card.js"></script>
+    <script src="/components/footer/footer.js"></script>
+    <!-- <script src="/src/store.js"></script> -->
 </body>
-
 </html>

@@ -10,8 +10,7 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 64px;
-    background: var(--default-primary, #0B0B0B);
-
+    background: var(--default-primary);
 }
 
 #footers_body {

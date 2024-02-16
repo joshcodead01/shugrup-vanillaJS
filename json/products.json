@@ -8,7 +8,9 @@
             "brand": "Nike",
             "forGenders": ["Men", "Unisex"],
             "forSports": "Basketball",
-            "productRanked": 1
+            "productRanked": 1,
+            "colors": ["#97541B", "#971B1B"]
+            
         },
         {
             "productImg": "../assets/Images/Nike/1.webp",
@@ -18,7 +20,8 @@
             "brand": "Nike",
             "forGenders": ["Men", "Unisex"],
             "forSports": "Basketball",
-            "productRanked": "no ranked"
+            "productRanked": "no ranked",
+            "colors": ["#C16339", "#36BEA6", "#363BBE"]
             
         }, 
         {
@@ -29,7 +32,8 @@
             "brand": "Adidas",
             "forGenders": ["Men", "Unisex"],
             "forSports": "Basketball",
-            "productRanked": "no ranked"
+            "productRanked": "no ranked",
+            "colors": ["#D7DAE5", "#1B161A"]
         }, 
         {
             "productImg": "../assets/Images/Nike/2.webp",
@@ -39,7 +43,8 @@
             "brand": "Nike",
             "forGenders": ["Men", "Unisex"],
             "forSports": "Basketball",
-            "productRanked": 2
+            "productRanked": 2,
+            "colors": ["#8B1F25", "#8B871F", "#000000"]
         },
         {
             "productImg": "../assets/Images/Adidas/2.jpg",
@@ -49,7 +54,8 @@
             "brand": "Adidas",
             "forGenders": ["Men", "Unisex"],
             "forSports": "Basketball",
-            "productRanked": "no ranked"
+            "productRanked": "no ranked",
+            "colors": ["#1D1D1F", "#D7DAE5", "#000039"]
         }, 
         {
             "productImg": "../assets/Images/Adidas/3.webp",
@@ -59,7 +65,8 @@
             "brand": "Adidas",
             "forGenders": ["Men", "Unisex"],
             "forSports": "Basketball",
-            "productRanked": "no ranked"
+            "productRanked": "no ranked",
+            "colors": ["#232323", "#002C5F", "#5F0000"]
         }, 
         {
             "productImg": "../assets/Images/Puma/1.webp",
@@ -69,7 +76,8 @@
             "brand": "Puma",
             "forGenders": ["Men", "Unisex"],
             "forSports": "Basketball",
-            "productRanked": 3
+            "productRanked": 3,
+            "colors": ["#C5C9D1", "#1B1A1D", "#1B1A1D"]
         },
         {
             "productImg": "../assets/Images/Puma/2.webp",
@@ -79,7 +87,8 @@
             "brand": "Pumas",
             "forGenders": ["Men", "Unisex"],
             "forSports": "Basketball",
-            "productRanked": 4
+            "productRanked": 4,
+            "colors": ["#C3C3B7", "#36BEA6", "#BE3698"]
         }, 
         {
             "productImg": "../assets/Images/Puma/3.webp",
@@ -89,7 +98,8 @@
             "brand": "Puma",
             "forGenders": ["Men", "Unisex"],
             "forSports": "Basketball",
-            "productRanked": "no ranked"
+            "productRanked": "no ranked",
+            "colors": ["#D8DF53", "#DF53C9"]
         },
         {
             "productImg": "../assets/Images/New Balance/1.webp",
@@ -99,7 +109,8 @@
             "brand": "New Balance",
             "forGenders": ["Men", "Unisex"],
             "forSports": "Basketball",
-            "productRanked": "no ranked"
+            "productRanked": "no ranked",
+            "colors": ["#2C64B4", "#B42C2C", "#B48E2C"]
         },
         {
             "productImg": "../assets/Images/New Balance/2.webp",
@@ -109,7 +120,8 @@
             "brand": "New Balance",
             "forGenders": ["Men", "Unisex"],
             "forSports": "Basketball",
-            "productRanked": 5
+            "productRanked": 5,
+            "colors": ["#D86543", "#1B1A1F", "#D4D3CF"]
         }, 
         {
             "productImg": "../assets/Images/New Balance/3.webp",
@@ -119,7 +131,8 @@
             "brand": "New Balance",
             "forGenders": ["Men", "Unisex"],
             "forSports": "Basketball",
-            "productRanked": "no ranked"
+            "productRanked": "no ranked",
+            "colors": ["#516E8F", "#518F53", "#8F7251"]
         }
        
     ]

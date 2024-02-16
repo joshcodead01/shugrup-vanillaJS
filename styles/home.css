@@ -135,26 +135,19 @@
 
 
 /* Top Selling Product Section */
-.top_selling_products_container {
-    display: flex;
-    gap: 48px;
-    width: 100%;
-    -ms-overflow-style: none;
-    scrollbar-width: none; 
-}
-
-.top_selling_products_container::-webkit-scrollbar {
-    display: none;
-}
-
-
 .top_selling_products_section {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
     margin: auto;
-    width: 1378px;
+    width: 100%;
+    position: relative;
+
+}
+
+.top_selling_products_section:hover #scroll-buttons {
+    opacity: 1;
 }
 
 .top_selling_products_section > div:first-child {
@@ -162,16 +155,54 @@
     justify-content: space-between;
     align-items: flex-start;
     align-self: stretch;
-    width: 1377px;
+    width: 100%;
     margin: auto;
+    padding: 0px 72px;
+}
+
+.top_selling_products_container {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    overscroll-behavior-inline: contain ;
+    display: grid;
+    align-items: center;
+    grid-auto-flow: column;
+    grid-auto-columns: 34%;
+    gap: 48px;
+    padding: 0px 72px;
+}
+
+.top_selling_products_container::-webkit-scrollbar {
+    width: 2px; /* width of the entire scrollbar */
+    height: 2px;
+    display: none;
+}
+
+/* .top_selling_products_container::-webkit-scrollbar-thumb {
+    background-color: #000000;
+}
+
+.top_selling_products_container::-webkit-scrollbar-track {
+    padding: 32px 0px;
+    background-color: #f1f1f1;
+} */
+
+
+.snaps_inline {
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: 72px;
+}
+
+.snaps_inline > * {
+    scroll-snap-align: start;
 }
 
 .top_selling_products_section > div > a {
     display: flex;
-    width: 193px;
     justify-content: center;
     align-items: center;
-
     color: var(--default-primary);
     text-align: center;
     font-family: Inter;
@@ -183,13 +214,37 @@
     text-transform: uppercase;
 }
 
+#scroll-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    padding: 0px 48px;
+    opacity: 0;
+    transition: opacity .2s ease-out;
+}
+
+.scroll-button {
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    background-color: 0px 0px 25px 0px rgba(0, 0, 0, 0.25);
+    color: var(--default-primary);
+    border: 1px solid var(--default-primary);
+    border-radius: 24px;
+    box-shadow: 0px 0px 25px 0px rgba(133, 133, 133, 0.25);
+
+}
+
 /* New Arrivals Section */
 .new_arrivals_section {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 32px;
-    margin: 32px 0px;
+    margin: 48px 0px;
 }
 
 .new_arrivals_container {
@@ -207,10 +262,9 @@
     gap: 24px;
     width: fit-content;
     margin: 64px auto;
-    
 }
 
-.sections_title {
+.blog_section .sections_title {
     width: fit-content;
     padding: 0 40px;
 }
